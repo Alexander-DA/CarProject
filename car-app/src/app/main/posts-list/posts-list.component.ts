@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../types/post';
-import { ApiService } from '../api.service';
-import { LoaderComponent } from '../shared/loader/loader.component';
+import { Post } from '../../types/post';
+import { ApiService } from '../../api.service';
+import { LoaderComponent } from '../../shared/loader/loader.component';
 
 @Component({
   selector: 'app-posts-list',
