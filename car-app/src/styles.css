@@ -18,13 +18,14 @@ html {
     box-sizing: border-box;
 }
 
-/* p:hover {
- color: #ff9900;
-} */
+p:hover {
+ cursor: pointer;
+}
 
 a:hover {
     color: #ff9900;
-   }
+    cursor: pointer;
+}
 
 *, *:before, *:after {
     box-sizing: inherit;

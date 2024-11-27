@@ -2,14 +2,24 @@
     <div class="logo-wrapper">
         <img src="pngwing.com.png">
         <div class="logo">
-          <p>Car Blog</p>
+          <p routerLink="/">Car Blog</p>
         </div>
     </div>
     <nav class="navigation">
       <ul>
+        
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/about">About</a></li>
         <li><a routerLink="/contact">Contact</a></li>
+
+        @if (!isLoggedIn) {
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/register">Register</a></li>
+        } @else {
+          <li><a routerLink="/addTheme">Catalog</a></li>
+          <li><a routerLink="/contact">Add Themes</a></li>
+        }
+        
       </ul>
     </nav>
   </header>
