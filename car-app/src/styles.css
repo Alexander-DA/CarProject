@@ -18,9 +18,9 @@ html {
     box-sizing: border-box;
 }
 
-p:hover {
+/* p:hover {
  color: #ff9900;
-}
+} */
 
 a:hover {
     color: #ff9900;
@@ -113,7 +113,7 @@ body {
     position: relative;
     min-height: 100vh;
     font-optical-sizing: auto;
-    background-color: #e4e3e3;
+    background-color: #d1d1d1;
 }
 
 
