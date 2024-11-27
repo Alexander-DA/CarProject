@@ -15,4 +15,10 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'car-app';
 
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    // this.http.get()
+  }
 }
+
