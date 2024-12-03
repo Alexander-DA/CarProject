@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { EmailDirective } from '../../directives/email.directive';
 import { EMAIL_DOMAINS } from '../../constants';
 import { emailValidator } from '../../utils/userInputFields.validator';
 
@@ -33,19 +32,21 @@ export class LoginComponent {
     )
   } 
 
-  isRegExValid(controlName: string) {
+  isRegExInvalid(controlName: string) {
     return (
       this.form.get(controlName)?.touched &&
       this.form.get(controlName)?.errors?.[`${controlName}Validator`]
     )
   }
 
+  constructor(private userService: UserService, private router: Router) {}
+
   login() {
 
     if(this.form.invalid) {
       return;
     }
-    // this.userService.login();
-    // this.router.navigate(['/home'])
+    this.userService.login();
+    this.router.navigate(['/home'])
   }
 }

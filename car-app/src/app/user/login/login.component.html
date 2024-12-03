@@ -11,7 +11,7 @@
                     </span>
                 </label>
                 <input 
-                    [class]="isFieldTextMissing('email') || isRegExValid('email') ? 'input-error' : ''"
+                    [class]="isFieldTextMissing('email') || isRegExInvalid('email') ? 'input-error' : ''"
                     type="email" 
                     name="email" 
                     id="email" 
