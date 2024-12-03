@@ -18,7 +18,7 @@ export const routes: Routes = [
     {path: 'themes', children: [
         { path: '', component: MainComponent },
         { path: ':themeId', component: CurrentThemeComponent, canActivate: [AuthGuard] },
-    ]},
+    ]}, 
     {path: 'add-theme', component: AddThemeComponent, canActivate: [AuthGuard]},
     {path: '404', component: ErrorComponent},
     {path: '**', redirectTo: '/404'},

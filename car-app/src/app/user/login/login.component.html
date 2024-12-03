@@ -1,32 +1,63 @@
 <div class="container">
-    <form class="login" action="" method="post">
+    <form class="login" [formGroup]="form" (ngSubmit)="login()">
 
         <fieldset>
             <h2>Login Form</h2>
 
             <p class="field field-icon">
-                <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input class="input-error" type="email" name="email" id="email" placeholder="john.doe@gmail.com" #inputEmail>
+                <label for="email">
+                    <span>
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </label>
+                <input 
+                    [class]="isFieldTextMissing('email') || isRegExValid('email') ? 'input-error' : ''"
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="john.doe@gmail.com"
+                    formControlName="email"
+                />
             </p>
-            <!-- <p class="error">
-                Email is required!
-            </p> -->
-            <!-- <p class="error">
-                Email is not valid!
-            </p> -->
+
+            @if(form.get('email')?.touched) {
+                <div>
+                    @if(form.get('email')?.errors?.['required']) {
+                        <p class="error">Email is required!</p>
+                    }
+                    @if(form.get('email')?.errors?.['emailValidator']) {
+                        <p class="error">Email is not valid!</p>
+                    }
+                </div>
+            }
 
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" name="password" id="password" placeholder="******" #inputPassword>
+                <input 
+                    [class]="isNotMinLength('password') || isFieldTextMissing('password') ? 'input-error' : ''"
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="******"
+                    formControlName="password"
+                >
             </p>
-            <!-- <p class="error">
-                Password is required!
-            </p>
-            <p class="error">
-                Password must be at least 4 characters!
-            </p> -->
 
-            <button (click)="login($event, inputEmail.value, inputPassword.value)">Login</button>
+            @if(form.get('password')?.touched) {
+                <div>
+                    @if(form.get('password')?.errors?.['required']) {
+                        <p class="error">Password is required!</p>
+                    }
+                    @if(form.get('password')?.errors?.['minlength']) {
+                        <p class="error">Password must be at least 5 characters!</p>
+                    }
+                </div>
+            }
+
+            <button 
+                [disabled]="form.invalid"
+                [style]="{ backgroundColor: form.invalid ? 'grey' : '' }"
+            >Login</button>
 
             <p class="text-center">
                 Have an account?

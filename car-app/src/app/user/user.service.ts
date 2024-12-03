@@ -37,5 +37,16 @@ export class UserService {
     localStorage.removeItem(this.USER_KEY);
   }
 
+  register() {
+    this.user = {
+        firstName: 'John',
+        email: 'john.doe@abv.bg',
+        phoneNumber: '123-123-123',
+        password: '123123',
+        id: 'asdasd',
+    }
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user))
+  }
+
   // TODO: Safe if the user is authenticated in local storage
 }
